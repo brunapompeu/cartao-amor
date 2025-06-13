@@ -1,0 +1,393 @@
+/* Importação de fontes (se você usou no HTML) */
+/* Lembre-se de adicionar no seu HTML, dentro do <head>: */
+/* <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet"> */
+
+/* --- Estilos Globais e Reset --- */
+html {
+    font-size: 16px; /* Define o tamanho base para 1rem */
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0 15px; /* Adiciona padding lateral para telas muito estreitas */
+    box-sizing: border-box; /* Inclui padding na largura do elemento */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Garante que o corpo ocupe pelo menos a altura da tela */
+    
+    background: linear-gradient(to right, #ffdde1, #ff9a9e); /* Fundo suave de gradiente ou sua imagem de fundo */
+    color: #333;
+    font-size: 1rem; /* Base font-size para o body */
+}
+
+/* --- Estilos para Esconder/Mostrar Elementos (Transições) --- */
+.hidden {
+    opacity: 0;
+    pointer-events: none; /* Desabilita cliques quando oculto */
+    transform: translateY(20px); /* Começa um pouco abaixo para o efeito de subir */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    position: absolute; /* Para que elementos ocultos não ocupem espaço */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex; /* Garante que os elementos de display flex funcionem mesmo quando ocultos */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    position: relative; /* Para que elementos visíveis ocupem espaço */
+}
+
+/* --- Estilos da Tela de Capa (#cover-screen) --- */
+#cover-screen {
+    background: linear-gradient(to bottom, #ec407a, #d81b60); /* Tons de rosa mais fortes */
+    color: white;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5em; /* Unidade relativa ao font-size do body */
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw; /* Ocupa 100% da largura da viewport */
+    height: 100vh; /* Ocupa 100% da altura da viewport */
+    z-index: 100; /* Garante que fique por cima de tudo */
+    position: absolute; /* Para que ela role com a página se necessário */
+    top: 0;
+    left: 0;
+    box-sizing: border-box; /* Garante que padding/borda não aumentem o tamanho */
+    padding: 20px; /* Padding para evitar que o conteúdo cole nas bordas */
+}
+
+#cover-screen h1 {
+    font-size: 10vw; /* Tamanho da fonte responsivo (10% da largura da viewport) */
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    padding: 0 15px; /* Para evitar que o texto encoste nas bordas em telas pequenas */
+}
+
+#cover-screen p {
+    font-size: 4vw; /* Tamanho da fonte responsivo */
+    margin-top: 0;
+    padding: 0 15px;
+}
+
+.heart-icon {
+    font-size: 15vw; /* Tamanho do ícone responsivo */
+    animation: pulse 1.5s infinite alternate; /* Animação do coração */
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+/* --- Estilos do Cartão Principal (#main-card) --- */
+#main-card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    padding: 30px;
+    max-width: 90%; /* Agora ele ocupa no máximo 90% da largura da tela */
+    width: 700px; /* Tenta ter 700px, mas se a tela for menor, max-width prevalece */
+    box-sizing: border-box; /* Inclui padding na largura/altura */
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    min-height: 500px; /* Altura mínima para o cartão */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 30px auto; /* Centraliza horizontalmente e adiciona margem acima/abaixo */
+}
+
+#main-card header h2 {
+    font-family: 'Dancing Script', cursive;
+    color: #e91e63;
+    font-size: 2.5em; /* Unidade relativa */
+    margin-bottom: 10px;
+}
+
+#main-card header p {
+    color: #777;
+    margin-bottom: 30px;
+}
+
+/* --- Estilos da Seção de Opções (#content-sections) --- */
+#content-sections {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+    justify-content: center;
+    gap: 20px; /* Espaçamento entre os itens */
+    margin-bottom: 30px;
+}
+
+.card-option {
+    background-color: #ffccbc;
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px; /* Largura base */
+    flex-grow: 1; /* Permite que cresçam para preencher o espaço */
+    max-width: calc(33.33% - 20px); /* Para 3 colunas em telas maiores, ajustando o gap */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box; /* Inclui padding na largura */
+}
+
+.card-option:hover {
+    background-color: #ffab91; /* Cor ao passar o mouse */
+    transform: translateY(-5px);
+}
+
+.card-option h3 {
+    color: #d84315; /* Laranja avermelhado */
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.3em; /* Unidade relativa */
+}
+
+.card-option p {
+    font-size: 0.9em; /* Unidade relativa */
+    color: #666;
+}
+
+/* --- Estilos para o Conteúdo Revelado (#revealed-content) --- */
+#revealed-content {
+    background-color: #fff8e1; /* Fundo para o conteúdo revelado */
+    border-radius: 10px;
+    padding: 25px;
+    margin-top: 20px;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+    min-height: 250px; /* Altura mínima para o conteúdo revelado */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; /* Permite que o conteúdo revelado ocupe o espaço restante */
+    box-sizing: border-box;
+    width: 100%; /* Garante que ocupe a largura disponível */
+}
+
+/* --- Estilos para a Seção de Fotos (#section-photo) com Rolagem Interna --- */
+#section-photo {
+    max-width: 90%; 
+    margin: 0 auto; 
+    max-height: 400px; /* Altura máxima para a rolagem interna */
+    overflow-y: auto; /* Adiciona a barra de rolagem vertical automaticamente se o conteúdo exceder max-height */
+    padding: 10px; /* Adiciona um pequeno padding interno */
+    border: 1px solid #ffccbc;
+    border-radius: 8px;
+    background-color: #fff8e1;
+    box-sizing: border-box;
+}
+
+#section-photo img {
+    max-width: 100%; /* Garante que a imagem se ajuste à largura do contêiner de rolagem */
+    width: 350px; /* Largura desejada, mas max-width 100% permite encolher */
+    height: 250px; /* Altura desejada */
+    object-fit: cover; /* Recorta a imagem para preencher o espaço, mantendo a proporção */
+    margin-bottom: 15px; /* Espaçamento entre as fotos */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Estilos para o Conteúdo Geral do Item (texto, áudio, etc.) --- */
+.content-item p, .content-item h3 {
+    margin-bottom: 15px;
+}
+
+.content-item img { /* Essa regra aplica-se a todas as imagens dentro de .content-item, cuidado se tiver outras imagens que não sejam da galeria */
+    max-width: 90%; /* Permite que a imagem se ajuste ao contêiner pai */
+    height: auto; /* Mantém a proporção */
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.content-item audio {
+    width: 90%; /* Áudio ocupa 90% da largura do contêiner */
+    max-width: 400px; /* Limita o tamanho máximo do player de áudio */
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5em; /* Unidade relativa */
+    color: #e91e63;
+    margin-top: 20px;
+}
+
+#close-content {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em; /* Unidade relativa */
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+#close-content:hover {
+    background-color: #45a049;
+}
+
+/* --- Media Queries (Ajustes para Diferentes Tamanhos de Tela) --- */
+
+/* Para telas de até 1200px (desktop médio para baixo) */
+@media (max-width: 1200px) {
+    #cover-screen h1 {
+        font-size: 8vw; 
+    }
+    #cover-screen p {
+        font-size: 3.5vw;
+    }
+    .heart-icon {
+        font-size: 12vw;
+    }
+}
+
+/* Para telas de até 768px (tablets e celulares grandes) */
+@media (max-width: 768px) {
+    #main-card {
+        padding: 20px;
+        margin: 20px auto; /* Reduz margem em telas menores */
+        min-height: 400px; /* Reduz altura mínima para tablets */
+    }
+
+    #main-card header h2 {
+        font-size: 2em; /* Reduz título principal */
+    }
+
+    #main-card header p {
+        font-size: 0.9em; /* Reduz parágrafo do header */
+    }
+
+    #content-sections {
+        gap: 15px; /* Reduz um pouco o espaçamento entre as opções */
+    }
+
+    .card-option {
+        max-width: calc(50% - 15px); /* 2 colunas em tablets, ajustando o gap */
+        padding: 15px;
+    }
+
+    .card-option h3 {
+        font-size: 1.2em;
+    }
+    .card-option p {
+        font-size: 0.85em;
+    }
+
+    #revealed-content {
+        padding: 20px;
+        min-height: 200px; /* Reduz altura mínima para conteúdo revelado */
+    }
+    #section-photo {
+        max-height: 300px; /* Reduz a altura da rolagem interna das fotos em tablets */
+    }
+}
+
+/* Para telas de até 480px (celulares pequenos) */
+@media (max-width: 480px) {
+    body {
+        padding: 0 10px; /* Padding lateral ainda menor */
+    }
+    #cover-screen h1 {
+        font-size: 10vw; /* De volta a 10vw, pode ser melhor para telas muito pequenas */
+    }
+    #cover-screen p {
+        font-size: 5vw;
+    }
+    .heart-icon {
+        font-size: 18vw; /* Coração um pouco maior em telas menores */
+    }
+
+    #main-card {
+        padding: 15px;
+        margin: 15px auto;
+        min-height: 350px; /* Altura mínima para celulares */
+    }
+
+    #main-card header h2 {
+        font-size: 1.7em;
+    }
+    #main-card header p {
+        font-size: 0.8em;
+    }
+
+    .card-option {
+        max-width: 100%; /* 1 coluna em celulares */
+        width: 100%; /* Garante que ocupa a largura total */
+        padding: 12px;
+    }
+
+    .card-option h3 {
+        font-size: 1.1em;
+    }
+    .card-option p {
+        font-size: 0.8em;
+    }
+
+    #revealed-content {
+        padding: 15px;
+        min-height: 150px;
+    }
+    #section-photo {
+        max-height: 250px; /* Reduz a altura da rolagem interna das fotos em celulares */
+    }
+    #section-photo img {
+        width: 100%; /* Imagens ocupam 100% da largura disponível */
+        height: 180px; /* Altura um pouco menor para celulares */
+    }
+
+    .content-item audio {
+        width: 100%; /* Áudio ocupa 100% da largura em celulares */
+    }
+
+    #close-content {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+}
+
+/* Para garantir um limite superior de tamanho para fontes e elementos em telas MUITO grandes */
+@media (min-width: 1600px) {
+    #cover-screen h1 {
+        font-size: 4em; /* Limite de tamanho para o h1 da capa */
+    }
+    #cover-screen p {
+        font-size: 1.5em; /* Limite para o p da capa */
+    }
+    .heart-icon {
+        font-size: 6em; /* Limite para o coração */
+    }
+    #main-card {
+        max-width: 800px; /* Limita o tamanho máximo do cartão em telas gigantes */
+        padding: 40px;
+    }
+    #main-card header h2 {
+        font-size: 3em;
+    }
+    .card-option {
+        max-width: 250px; /* Aumenta a largura das opções em telas grandes */
+    }
+    #section-photo img {
+        width: 400px; /* Aumenta a largura das imagens da galeria em telas grandes */
+        height: 300px;
+    }
+}

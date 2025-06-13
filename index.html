@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para o Meu Amor ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="cover-screen" class="active">
+        <h1>Para o Meu Amor!</h1>
+        <p>Clique para abrir meu coração</p>
+        <div class="heart-icon">❤️</div>
+    </div>
+
+    <div id="main-card" class="hidden">
+        <header>
+            <h2>Feliz Dia dos Namorados, Amor da Minha Vida!</h2>
+            <p>Preparei algumas surpresas para você.</p>
+        </header>
+
+        <section id="content-sections">
+            <div class="card-option" data-target="section-message">
+                <h3>Minha Mensagem</h3>
+                <p>Abra para ler o que sinto por você.</p>
+            </div>
+            <div class="card-option" data-target="section-photo">
+                <h3>Nossas Memórias</h3>
+                <p>Veja algumas fotos dos nosso melhores momentos.</p>
+            </div>
+            <div class="card-option" data-target="section-song">
+                <h3>Nossa Canção</h3>
+                <p>Ouça um trecho da nossa música.</p>
+            </div>
+        </section>
+
+        <div id="revealed-content" class="hidden">
+            <div id="section-message" class="content-item hidden">
+                <p>Meu amor, nosso segundo dia dos namorados juntas e mais 1 mês que decidimos embarcar nessa jornada louca que é a vida.<br>
+                Passa tão rápido que as vezes nem me dou conta que você me aguenta por por tanto tempo assim (kkk) não existe data especial pra se <br>
+                dizer que ama e principalmente demonstrar isso todos os dias, você sabe que amar alguém é muito mais do que apenas um dia, é se fazer <br>
+                presente, com respeito, afeto, paciência e muito amor. Coisas que sei que aqui não falta, talvez (paciência) , mas te amo minha dinamite. 
+                Você é a minha escolha diária e vai ser o meu SIM quando trocarmos as alianças do nosso casamento! Amo-te.</p>
+                <p class="signature">Bia Égues</p>
+            </div>
+
+            <div id="section-photo" class="content-item hidden">
+                <img src="images/festa.jpg" alt="Nossa primeira foto juntas">
+                <p>Lembro como se fosse hoje o dia em que tiramos essa foto. Te chamei pra ir para festa comigo e você disse sim e foi uma <br>
+                    noite inequecível!</p>
+                <img src="images/IMG_20240121_214436026_PORTRAIT.jpg" alt="Nosso primeiro carnaval juntas">
+                <p>Ainda quero ter muitos carnavais ao seu lado, no nosso bloquinho do cobertor , minha Bia. </p>
+                
+                <img src="images/IMG_20241110_114758404.jpg" alt="Nosso primeiro carnaval juntas">
+                <p>Nossos passeios e aventuras. </p>
+
+                <img src="images/parque.jpg" alt="Nosso primeiro carnaval juntas">
+                <p>Nosso único dia no parque (kkk). </p>
+
+                <img src="images/saida.jpg" alt="Nosso primeiro carnaval juntas">
+                <p>Nossas comilanças. </p>
+
+                <img src="images/IMG_20241116_192516373~2.jpg" alt="Nosso primeiro carnaval juntas">
+                <p>Dividir a vida com você é o que mais tenho de precioso. </p>
+
+                <img src="images/anonovo.jpg" alt="Nosso primeiro carnaval juntas">
+                <p>Que possamos passar muitos anos juntas! </p>
+
+                <img src="images/pedidodenamoro.jpg" alt="Nosso primeiro carnaval juntas">
+                <p>Pra sempre vou te amar! </p>
+
+            </div>
+            <div id="section-song" class="content-item hidden">
+                <audio controls>
+                    <source src="audios/RAIO DE LUZ _ BANDA MEGA POP SHOW [yZ9KEfaqlD0].mp3" type="audio/mpeg">
+                    Seu navegador não suporta áudio.
+                </audio>
+                <p>Essa música me lembra de você e de como você é a luz em minha vida, o quanto sou feliz ao seu lado.</p>
+            </div>
+
+            <button id="close-content">Voltar ao Cartão</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
